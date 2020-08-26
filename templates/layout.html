@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/media/css/bootstrap.min.css">
+
+    <!--font-awesome-css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!--animate-css-->
+    <link rel="stylesheet" href="/media/animate.css/animate.min.css">
+
+    <link rel="stylesheet" href="/media/css/style.css">
+
+    <!-- <link rel="stylesheet" href="/media/css/stars_animate_bg.css"> -->
+    <link rel="stylesheet" href="/media/css/shooting_stars.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/media/css/navbar.css">
+    <link rel="icon" href="/media/images/edbud_icon.png">
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+  
+  <div class="topnav" id="myTopnav">
+    
+    <img src="/media/images/edbud_symbol.png"/>
+    <a href="/howto">How To</a>
+    <a href="/about">About Us</a>
+    <a href="/contactus">Contact Us</a>
+    <a  href="/exsite">Log in/Sign up as a Teacher</a>
+    <a href="/" class="active">Home</a>
+  
+  
+  
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+  </div>
+
+  
+
+
+    <div class="night">
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+</div>
+
+    {% block body %}
+    {% endblock %}
+
+
+
+  <section id="footer">
+        <div class="container text-center">
+            <a href="/contactus" style="color: #ecab41; font-size=18px">Contact <i class="fa fa-heart" style="font-size:18px; color: red;"></i> Us</p></a>
+            <p style="color: #ecab41; font-size=18px">Copyright &copy; edbudexaminations</p>
+        </div>
+    </section>
+
+
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+    {% block js %} {% endblock %}
+</body>

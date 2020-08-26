@@ -1,0 +1,117 @@
+{% extends 'exsite/basic.html' %}
+
+{% block title %}Log in - edbud {% endblock %}
+{% block css  %}
+
+.bd-placeholder-img {
+font-size: 1.125rem;
+text-anchor: middle;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+@media (min-width: 768px) {
+.bd-placeholder-img-lg {
+font-size: 3.5rem;
+}
+}
+
+{% endblock  %}
+{% block head %}
+
+<link href="/media/exsite/css/signin.css" rel="stylesheet">
+
+{% endblock  %}
+
+{% block addnavitem %}
+<li class="nav-item active">
+    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+</li>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="form-box">
+  <div class="button-box">
+    <div id="btn"></div>
+    <button type="button" onclick="login()" class="toggle-btn">Login</button>
+    <button type="button" onclick="register()" class="toggle-btn">Register</button>
+  </div>
+  
+  <form id="login" class="input-group" method="post">{% csrf_token %}
+    <input type="email" class="input-field"name="email" placeholder="Enter your Email" required
+    autofocus>
+    <input type="password" class="input-field"name="password" placeholder="Enter password" required
+    autofocus>
+    <a href="/exsite/forgotpassword/"><label style="color: #ecab41; font-size: 13px; text-align: center;">Forgot Password</label></a>
+    
+    <button type="submit" class="submit-btn">Log in</button>
+    
+  </form>
+  
+
+  <form id="register" action="/exsite/register" class="input-group" method="post">{% csrf_token %}
+    <input type="text" class="input-field"name="Rname" placeholder="Enter your Name" required>
+    <input type="email" class="input-field"name="Remail" placeholder="Enter your Email" required>
+    <input type="tel" class="input-field"name="Rphone" placeholder="Enter your Phone number" required>
+    <input type="password" class="input-field"name="Rpassword" placeholder="Enter password" required>
+    
+    
+    <button type="submit" class="submit-btn">Register</button>
+  </form>
+  
+</div>
+
+
+
+<!-- 
+<div class="container text-center">
+  <form class="form-signin" action="" method="post">{% csrf_token %}
+    <img class="mb-4" src='/media/exsite/images/user1.png' alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" required
+      autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+    <div class="checkbox mb-3">
+      <label>
+        <a href="/exsite/forgotpassword/"><b> Forgot Password </b></a>
+      </label>
+      <label>
+        <a href="/exsite/teacherinfo/"><b> Don't Have a account? Register Yourself </b></a>
+      </label>
+    </div>
+    <button class="btn btn-outline-success btn-block" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
+  </form>
+</div> -->
+{% endblock body %}
+
+{% block js %}
+<script>
+  var x=document.getElementById("login");
+		var y=document.getElementById("register");
+		var z=document.getElementById("btn");
+
+		function register(){
+			x.style.left = "-400px";
+			y.style.left = "50px";
+			z.style.left ="110px";
+		}
+		function login(){
+			x.style.left = "50px";
+			y.style.left = "450px";
+			z.style.left = "0";
+		}
+  {% if incorrect %}
+  alert('Username or password do not match');
+  {% endif %}
+  {% if emailexist %}
+  alert('This Email is already Present');
+  {% endif %}
+</script>
+{% endblock %}

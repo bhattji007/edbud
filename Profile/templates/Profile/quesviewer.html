@@ -1,0 +1,61 @@
+{% extends 'Profile/basic.html' %}
+{% block title %} Questions - edbud {% endblock  %}
+{% block teachname %} {{teacherinfo.name}} {% endblock  %}
+
+{% block body %}
+<div class="container my-5">
+    <h2 style="text-align: center; color: rgb(255, 255, 255);">{{pprinfo.pprname}}</h2>
+        <h4 style="text-align: center; color: rgba(164, 217, 226, 0.856);">({{pprinfo.pprcode}})</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <h4 style="text-align: center; color: rgba(253, 247, 247, 0.65);">{{pprinfo.starttime}}</h4>
+            </div>
+            <div class="col-md-6">
+                <h4 style="text-align: center; color: rgba(253, 247, 247, 0.65);">{{pprinfo.endtime}}</h4>
+            </div>
+        </div>
+        <div style="text-align:center;">
+            <a href="/userprofile/deleteppr/{{pprinfo.pprcode}}/" style="color: #ffffff" class="btn btn-outline-dark">Delete Paper</a>
+        </div>
+    {% if mcq %}
+    <form method="POST">{% csrf_token %}
+        {% for ques in questions %}
+            <div class="card bg-transparent" id="quesviewer">
+                <h4 style="color: rgb(255, 255, 255);">{{forloop.counter}}.)</h4>
+                <textarea rows="2" class="bg-transparent" id="question{{forloop.counter}}" name="question{{forloop.counter}}" style="color: #ffffff; font-size: 25px; border: none;">{{ques.0}}</textarea>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label style="color: rgb(68, 161, 161);">a.) </label><input class="bg-transparent" id="{{forloop.counter}}op1" name="{{forloop.counter}}op1" style="color: rgb(151, 229, 229); font-size: 18px; border: none;" value="{{ques.1}}"><br>
+                            <label style="color: rgb(68, 161, 161);">b.) </label><input class="bg-transparent" id="{{forloop.counter}}op2" name="{{forloop.counter}}op2" style="color: rgb(151, 229, 229); font-size: 18px; border: none;" value="{{ques.2}}">
+                        </div>
+                        <div class="col-md-6">
+                            <label style="color: rgb(68, 161, 161);">c.) </label><input class="bg-transparent" id="{{forloop.counter}}op3" name="{{forloop.counter}}op3" style="color: rgb(151, 229, 229); font-size: 18px; border: none;" value="{{ques.3}}"><br>
+                            <label style="color: rgb(68, 161, 161);">d.) </label><input class="bg-transparent" id="{{forloop.counter}}op4" name="{{forloop.counter}}op4" style="color: rgb(151, 229, 229); font-size: 18px; border: none;" value="{{ques.4}}">
+                        </div>
+                    </div>
+                    <label style="color: rgb(68, 161, 161);">Correct Answer:- </label><input class="bg-transparent" id="ans{{forloop.counter}}" name='ans{{forloop.counter}}' style="color: rgb(151, 229, 229); font-size: 20px; border: none;" value="{{ques.5}}">
+                    <label style="color: rgb(68, 161, 161);">Marks:- </label><input class="bg-transparent" id="marks{{forloop.counter}}" name='marks{{forloop.counter}}' style="color: rgb(151, 229, 229); font-size: 20px; border: none;" value="{{ques.6}}">
+                </div>
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-outline-secondary">Save Changes</button>
+    </form>
+    {% else %}
+    <form method="POST">{% csrf_token %}
+        <h5 style="text-align: center; color: rgba(253, 247, 247, 0.65);">Answer through PDF:- {{pprinfo.pdfop}}</h4>
+        {% for ques in questions %}
+        
+        <div class="card bg-transparent" id="quesviewer">
+            <h4 style="color: rgb(255, 255, 255);">{{forloop.counter}}.)</h4>
+            <textarea rows="2" class="bg-transparent" id="question{{forloop.counter}}" name="question{{forloop.counter}}" style="color: #ffffff; font-size: 25px; border: none;">{{ques}}</textarea>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-outline-secondary">Save Changes</button>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}
+
+<h5 class="card-title" style="color: rgb(151, 229, 229);"><b>{{ques.endtime}}</b></h5><br>
+                <p class="card-text" style="color: rgb(151, 229, 229);">Number of Questions:- <b>{{ques.noofques}}</b></p>

@@ -1,0 +1,91 @@
+{% extends 'ansside/basic.html' %}
+{% block title %}Exam center - edbud{% endblock %}
+{% block body%}
+
+<div class="container my-lg-5">
+
+<div id='timer'>
+    <h1 align='center'>Time Left
+    <span id="display"></span>
+    </h1>
+</div>
+
+<form method='post'   id="solvemcq">{% csrf_token %}
+    <div id="mcqquesviewer" class="carousel slide my-5" data-interval="false">
+    
+    <div class="carousel-inner">
+        {% for ques in quesset %}
+            {% if forloop.first %}
+                <div class="carousel-item active  ">
+            {% else %}
+                <div class="carousel-item  ">
+            {% endif %}
+            <h3>{{forloop.counter}}.) {{ques.0}}</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="radio" name="mcq{{forloop.counter}}" id="r1{{forloop.counter}}" value="{{ques.1}}"><label for="r1{{forloop.counter}}">{{ques.1}}</label>
+                    <br>
+                    <input type="radio" name="mcq{{forloop.counter}}" id="r2{{forloop.counter}}" value="{{ques.2}}"><label for="r2{{forloop.counter}}">{{ques.2}}</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="radio" name="mcq{{forloop.counter}}" id="r3{{forloop.counter}}" value="{{ques.3}}"><label for="r3{{forloop.counter}}">{{ques.3}}</label>
+                    <br>
+                    <input type="radio" name="mcq{{forloop.counter}}" id="r4{{forloop.counter}}" value="{{ques.4}}"><label for="r4{{forloop.counter}}">{{ques.4}}</label>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    
+    <a class="carousel-control-prev" href="#mcqquesviewer" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#mcqquesviewer" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  
+        <button type="submit" class="btn btn-outline-dark" style="color: white;
+            border-color: white;">Submit</button>
+    </form>
+</div>
+{% endblock %}
+{% block js %}
+  <script>
+    var div = document.getElementById('display');
+    
+
+      function CountDown(duration, display) {
+
+                var timer = duration, minutes, seconds;
+
+              var interVal=  setInterval(function () {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+            display.innerHTML ="<b>" + minutes + "m : " + seconds + "s" + "</b>";
+                    if (timer > 0) {
+                       --timer;
+                    }else{
+               clearInterval(interVal)
+                        SubmitFunction();
+                     }
+
+               },1000);
+
+        }
+
+      function SubmitFunction(){
+        alert('Time Is Up Answers Are Submitting');
+        document.getElementById('solvemcq').submit();
+
+       }
+       CountDown({{time}},div);
+    </script>
+  {% endblock %}
+
+

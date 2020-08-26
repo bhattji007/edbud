@@ -1,0 +1,58 @@
+{% extends 'exsite/basic2.html' %}
+{% block title %} Dashboard - edbud {% endblock  %}
+{% block teachname %} {{teacherinfo.name}} {% endblock  %}
+
+
+{% block body %}
+
+<div class="container my-4">
+  <h1 style="color: #ecab41; text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><u>Welcome!</u></h1> 
+  <div class="row my-5">
+
+    <div class="col-md-6">
+      <div class="card bg-transparent mb-4">
+        <div class="card-body">
+          <h2>Make A New Question Paper</h2>
+          <ul class="menuop my-2">
+            <a href="/exsite/mcqques/">
+              <li class="animate__animated animate__backInLeft"><img id="symbol" src='/media/exsite/images/mcq.png'
+                  alt="" width="80" height="90">
+                <label> Mcq Question Paper </label>
+              </li>
+            </a>
+            <br>
+            <a href="/exsite/norques/">
+              <li class="animate__animated animate__backInLeft"><img id="symbol" src='/media/exsite/images/quesans.png'
+                  alt="" width="80" height="90">
+                <label> Normal Question Paper </label>
+              </li>
+            </a>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card bg-transparent mb-4">
+        <div class="card-body">
+          <h2>Your Last  Question Papers</h2>
+            {% for ppr in quesppr  %}
+            <ul class="oldppr">
+              <a href="/userprofile/question/{{ppr.pprcode}}/"><li class="animate__animated animate__backInRight"><label>{{ppr.pprname}} on {{ppr.starttime}}</label></li></a>
+            </ul>
+            {% endfor %}
+            <a href='/userprofile/allquestion'><button type="submit" class="btn btn-outline-secondary">See All</button></a>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+
+    
+
+  </div>
+</div>
+
+
+    {% endblock  %}

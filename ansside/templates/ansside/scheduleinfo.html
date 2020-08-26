@@ -1,0 +1,28 @@
+{% extends 'ansside/basic.html' %}
+{% block title %}Paper details - edbud{% endblock %}
+{% block body %}
+<div class="container" id="pprinfo">
+{% if start %}
+<h1 align="center">This Exam is Scheduled on {{date}}</h1>
+{% else %}
+<h1 align="center">This Exam is Over!!</h1>
+<h1 align="center">This Exam was Scheduled on {{date}}</h1>
+
+{% endif %}
+  <h1 align="center">{{paper.pprname}}</h1>
+  <h3 align="center">By:- {{paper.pprteach}}</h3>
+  <div class="row">
+    <div class="col-md-6 my-5">
+      <h5 align="center">Number of Question:- {{paper.noofques}}</h5> 
+    </div>
+    <div class="col-md-6 my-5">
+      <h5 align="center">paper code:-{{paper.pprcode}}</hr>
+        
+    </div>
+  </div>
+  <h5 align="center">Date:-{{date}}</hr>
+
+<hr>
+</div>
+{% endblock %}
+

@@ -1,0 +1,78 @@
+{% extends 'Profile/basic.html' %}
+{% block css %} 
+    #note{
+        display: none;
+    }
+    @media screen and (max-width: 700px){
+        #note{
+            display: block;
+        }
+    }
+{% endblock %}
+{% block title %} Submissions - edbud {% endblock  %}
+{% block teachname %} {{teacherinfo.name}} {% endblock  %}
+
+{% block body %}
+{% load static %}
+<div class="container my-5" >
+    <h1 style="text-align: center; color: #ffffff;">{{code}}</h1>
+    <div style="text-align: center;">
+        <a href="/userprofile/quesviewer/{{code}}/" style="color: #ffffff" class="btn btn-outline-secondary">View/Edit Question paper</a>
+        <a href="/userprofile/deleteppr/{{code}}/" style="color: #ffffff" class="btn btn-outline-secondary">Delete Paper</a>
+        <br>
+        <p id="note" style="color: #7a7373d2;"><b>(Please Rotate Your Phone for better Experience)</b></p>
+    </div> 
+    
+    <br>
+    <div class="card bg-transparent">
+    <table id="students">
+        {% if mcq %}
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Submission Time</th>
+                <th>Result</th>
+            </tr>
+            {% for student in submissions %}
+            <tr>
+                <td>{{student.studname}}</td>
+                <td>{{student.studemail}}</td>
+                <td>{{student.subtime}}</td>
+                <td>{{student.result}}</td>
+            </tr>
+            {% endfor %}
+        {% elif pdf %}
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Submission Time</th>
+                <th>Answer Pdf</th>
+            </tr>
+            {% for student in submissions %}
+            <tr>
+                <td>{{student.studname}}</td>
+                <td>{{student.studemail}}</td>
+                <td>{{student.subtime}}</td>
+                <td><a href="{{student.pdf.url}}"><button style="font-weight: 600;" class="btn btn-outline-danger">View pdf</button></a></td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Submission Time</th>
+                <th>View Answers</th>
+            </tr>
+            {% for student in submissions %}
+            <tr>
+                <td>{{student.studname}}</td>
+                <td>{{student.studemail}}</td>
+                <td>{{student.subtime}}</td>
+                <td><a href="/userprofile/norview/{{student.studemail}}/{{code}}/"><button style="font-weight: 600;" class="btn btn-outline-danger">View Answers</button></a></td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,225 @@
+*
+{
+	padding:0;
+	margin:0;
+ 
+}
+
+/* -------------------------------Navigation Bar------------------------------------ */
+#nav-bar
+{
+	top: 0;
+    z-index: 10;
+    margin: 20px;
+    box-shadow: 0 4px 4px 0 rgb(0, 0, 0), 0 4px 10px 0 rgba(248, 246, 246, 0.959);
+    border-radius: 40px;
+}
+
+#nav-bar:hover{
+    background: linear-gradient( #1d1c1cec);
+    transition: 0.5s;
+}
+
+.navbar-nav li a{
+	color:rgb(134, 118, 118)!important;
+    float: right;
+    text-align: left;
+    font-family: 'Times New Roman', 'Times', 'serif';
+    font-size: 25px;
+}
+#nav-bar ul li a:hover{
+	color: #e0e6ec!important;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 28px;
+    transition: 0.5s;
+}
+#nav-bar .iconav img {
+    height: 75px;
+    width: 220px;
+}
+#nav-bar .iconav img:hover{
+	filter: drop-shadow(0px 0px 15px rgb(255, 158, 3));
+	transition: 0.5s;
+}
+
+
+/* -------------------------------CodeEntry------------------------------------ */
+.codeentry{
+	margin-top: 2.5cm;
+}
+.codeentry h1{
+	color: #fff;
+}
+.codeentry form input{
+	color: #fff;
+}
+.codeentry form{
+	margin: 0 auto; 
+	width:500px;	
+}
+.codeentry form button{
+	margin-top: 10px;
+	margin-left: 5.5cm;
+	margin-right: auto;
+}
+#studinfo input, label, h1{
+	color: #e4e3cf;
+}
+
+
+/* -------------------------------Paper Information------------------------------------ */
+#pprinfo h1{
+	color: #fdfdfd
+}
+#pprinfo h3{
+	color: #a3a295
+}
+#pprinfo h5{
+	color: #ffffff
+}
+
+
+
+/* -------------------------------Timer------------------------------------ */
+#timer{
+	padding: 10px 20px;
+	position: relative;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow';
+}
+#timer h1:hover{
+	box-shadow:  2px 2px 4px 2px rgba(110, 114, 117, 0.959);
+}
+
+
+/* -------------------------------Carousel icons------------------------------------ */
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon
+{
+background-color: #333;
+}
+.carousel-control-prev
+.carousel-control-next
+{
+top: auto;
+padding-top: 222px;
+bottom: auto;
+}
+
+
+/* -------------------------------Solving Mcq------------------------------------ */
+#solvemcq{
+	padding: 0px;
+    padding-left: 90px;
+    padding-right: 80px;
+	margin: 0;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+}
+#solvemcq button{
+	margin-left: auto;
+    margin-right: auto;
+}
+#solvemcq input[type="radio"] {
+    display: none;  
+}
+
+#solvemcq input[type="radio"] + label {
+	background-color: transparent; 
+}
+
+#solvemcq input[type="radio"]:checked + label {
+	/* background-color: #6e2d08e3;   */
+	box-shadow: 0 4px 4px 0 rgb(0, 0, 0), 0 4px 10px 0 rgba(248, 246, 246, 0.959);
+	/* filter: drop-shadow(0px 10px 15px  rgb(255, 134, 225)); */
+}
+#solvemcq label{
+	font-size: 22px;
+	
+}
+#solvemcq h3{
+	color: #b6ae16;
+}
+
+
+
+/* -------------------------------Normal Question Paper------------------------------------ */
+#Norquesviewer h1{
+	color: #e4e3cf;
+}
+#norques textarea, h4{
+	color: #efef;
+}
+#normalques{
+	padding: 0px;
+    padding-left: 90px;
+    padding-right: 80px;
+	margin: 0;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#normalques button{
+	margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* --------pdffile submission------ */
+#pdfsubmit input{
+	margin: auto;
+}
+#pdfsubmit input, h4, h1{
+	color: #fff;
+}
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 500;
+    color: white;
+    background-color: transparent;
+	display: inline-block;
+	
+	
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+	/* background-color: rgb(110, 104, 104); */
+	box-shadow: 0 4px 4px 0 rgb(0, 0, 0), 0 4px 10px 0 rgba(248, 246, 246, 0.959);
+	
+}
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+.inputfile + label * {
+	pointer-events: none;
+}
+
+/* -------------------------------Main Body------------------------------------ */
+body
+{	
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(/media/ansside/images/back.jpg);
+	background-size: cover;
+    background-position: center;
+}
+
+
+/* -------------------------------Footer------------------------------------ */
+#footer
+{
+	color: #fff;
+	/* position: fixed; */
+	left: 0;
+	bottom: 0;
+	width: 100%; 
+	padding: 8px;
+} 

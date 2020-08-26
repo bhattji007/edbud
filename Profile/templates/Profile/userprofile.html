@@ -1,0 +1,57 @@
+{% extends 'Profile/basic.html' %}
+{% block title %} {{teacherinfo.name}} - edbud {% endblock  %}
+{% block teachname %} {{teacherinfo.name}} {% endblock  %}
+{% block body %}
+<div class="container my-5">
+
+    <div class="row animate__animated animate__backInDown">
+
+        <div class="col-md-4">
+            <div class="card " id="usrprfl">
+                <h3 style="text-align: center; color: rgb(228, 148, 43);" class="card-header">Name</h3>
+                    <div class="card-body">
+                        <h4 style="text-align:center; color: rgb(83, 50, 6);">{{teacherinfo.name}}</h4>
+                    </div>
+                    <a href="/userprofile/changes/"><button  class="btn btn-outline-dark">Change Name</button></a>
+            </div>
+        </div>
+
+        <div class="col-md-4" >
+            <div class="card" id="usrprfl">
+                <h3 style="text-align: center; color: rgb(228, 148, 43);" class="card-header">Email</h3>
+                <div class="card-body">
+                    <h4 style="text-align:center; color: rgb(83, 50, 6);">{{teacherinfo.email}}</h4>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card" id="usrprfl">
+                <h3 style="text-align: center; color: rgb(228, 148, 43);" class="card-header">Phone Number</h3>
+                <div class="card-body">
+                    <h4 style="text-align:center; color: rgb(83, 50, 6);">{{teacherinfo.phone}}</h4>
+                </div>
+                <a href="/userprofile/changes/"><button class="btn btn-outline-dark">Change Phone Number</button></a>
+            </div>
+        </div>
+
+    </div>
+    <div class="animate__animated animate__backInRight" style="text-align: center;">
+        <a href="/userprofile/changes/"><button class="btn btn-outline-warning">Change Your Password</button></a>
+    </div>
+    <div class="card animate__animated animate__backInUp" id="usrprfl">
+        <h3 style="text-align: center; color: rgb(228, 148, 43);" class="card-header">Description</h3>
+        <div class="card-body">
+            <h4 style="text-align:center; color: rgb(83, 50, 6);">{{teacherinfo.description}}</h4>
+        </div>
+        <a href="/userprofile/changes/"><button type="button" class="btn btn-outline-dark">Change Description</button></a>
+    </div>
+    <div class="animate__animated animate__backInRight" style="text-align: center;">
+        <a href="/userprofile/allquestion/"><button class="btn btn-outline-warning">See Your Question and Submission</button></a>
+    </div>
+    
+    
+</div>
+{% endblock %}
+

@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+{% block head %} 
+<title>Contact Us - edbud</title> 
+
+{% endblock %}
+
+{% block body %}
+<body>
+    
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-lg-7 my-lg-5">
+                <div class="card bg-transparent">
+                    <h2 class="card-header" style="color: #ecab41;">We'd love to here from you <i class="fa fa-heart" style="font-size:30px; color: red;"></i></h3>
+                    <div class="card-body">
+                        <h5 style="color:#e9c487ce;">For anything, Any Problem We are Right here in your service</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+
+                <div class="card" id="contact">
+                    
+                    <h4 class="card-header" style="color: #dd9726;">Contact Us</h3>
+                    <div class="card-body">
+                        <form method="POST">{% csrf_token %}
+                            <input type="text" class="bg-transparent" name="contactname" required placeholder="Enter your Name">
+                            <input type="email" class="bg-transparent" name="contactemail" placeholder="Enter Your Email" required>
+                            <textarea rows="4" class="bg-transparent" name="contactmsg" placeholder="Enter Your Message to Edbud" required></textarea>
+                            <button class="btn" type="submit">
+                                <i class='bx bx-send'></i>
+                                <span class="text">
+                                  Send Message
+                                </span>
+                                <span class="loading-animate"></span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+
+{% block js %}
+<script>
+    document.querySelector('.btn').addEventListener('click', (evt) => {
+  evt.target.classList.add('loading')
+
+  setTimeout(() => {
+    evt.target.classList.remove('loading')
+  }, 3000);
+})
+</script>
+{% endblock %}

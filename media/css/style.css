@@ -1,0 +1,238 @@
+
+/* <!------NavigationBar-------> */
+
+#nav-bar
+{
+	/* position: sticky; */
+	top: 0;
+    z-index: 10;
+    margin: 20px;
+    box-shadow: 0 4px 4px 0 rgb(0, 0, 0), 0 4px 10px 0 rgba(248, 246, 246, 0.959);
+    border-radius: 40px;
+    
+}
+
+#nav-bar .iconav img {
+    height: 60px;
+    width: 183px;
+}
+
+.navbar-nav li a
+{   
+    color:rgb(134, 118, 118)!important;
+    float: right;
+    text-align: left;
+    font-family: 'Times New Roman', 'Times', 'serif';
+    font-size: 20px;
+}
+#nav-bar ul li a:hover{
+    color: #e0e6ec!important;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 23px;
+    transition: 0.5s;
+}
+
+
+/* <!--------------------------------Contact us--------------------------------------> */
+#contact{
+    border-radius: 15px;
+    background: transparent;
+    box-shadow: 0 4px 4px 0 rgb(0, 0, 0), 0 4px 10px 0 rgba(248, 246, 246, 0.959);
+}
+#contact input{
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    color: #ffffff;
+    border-radius: 20px;
+}
+#contact input:hover{
+    width: 350px;
+    /* border: #ffffff; */
+    transition: 1s;
+}
+#contact textarea{
+    color: #ffffff;
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 20px;
+}
+#contact textarea:hover{
+    width: 350px;
+    transition: 1s;
+}
+            /* <-----------------------Submit Button----------------------> */
+            .btn {
+                background: #eeb060;
+                border: 0px solid #eeb060;
+                border-radius: 35px;
+                font-size: 1rem;
+                font-weight: bold;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                outline: none;
+                transition: all .25s ease;
+                width: 210px;
+                position: relative;
+                height: 60px;
+                overflow: hidden;
+                margin: 10px;
+            }
+            .btn:not(.loading):hover {
+                box-shadow: 0px 10px 25px 0px rgba(73, 215, 92,.4);
+            }
+            .btn:not(.loading):hover i {
+                transform: translate(7px);
+            }
+            .btn i {
+                font-size: 1.45rem;
+                position: absolute;
+                left: 0px;
+                pointer-events: none;
+                z-index: 10;
+                background: inherit;
+                width: 60px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                transition: all .25s ease;
+            }
+            .btn .text {
+                width: 130px;
+                display: block;
+                position: relative;
+                pointer-events: none;
+                transition: all .25s ease;
+                position: absolute;
+                left: 60px;
+            }
+            .loading-animate {
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                z-index: 100;
+                border-radius: 50%;
+                top: 0px;
+                left: 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                pointer-events: none;
+                opacity: 0;
+                transition: all .25s ease;
+            }
+            .loading-animate:after {
+                content: '';
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                border: 3px solid transparent;
+                border-left: 3px solid #fff;
+                animation: loading infinite .8s ease .05s;
+                position: absolute;
+            }
+            .loading-animate:before {
+                content: '';
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                border: 3px solid transparent;
+                border-left: 3px solid #fff;
+                animation: loading infinite .8s linear;
+                position: absolute;
+                opacity: .6;
+            }
+            .btn.loading {
+                width: 60px;
+            }
+            .btn.loading i {
+                transform: rotate(-90deg);
+                padding-bottom: 4px;
+                padding-left: 3px;
+            }
+            .btn.loading .text {
+                transform: translate(-140px);
+            }
+            .btn.loading .loading-animate {
+                opacity: 1;
+            }
+            @keyframes loading {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+/* <!--------------------------------about us--------------------------------------> */
+.output {
+    text-align:center;
+    font-family: 'Times New Roman', cursive;
+    color: #ecab41;
+    
+  }
+.output h1 {
+    font-size:35px;
+  }
+  /* Cursor Styling */
+  
+  .cursor::after {
+    content:'';
+    display:inline-block;
+    margin-left:3px;
+    background-color:white;
+    animation-name:blink;
+    animation-duration:0.5s;
+    animation-iteration-count: infinite;
+  }
+  h1.cursor::after {
+    height:24px;
+    width:13px;
+  }
+  p.cursor::after {
+    height:13px;
+    width:6px;
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity:1;
+    }
+    49% {
+      opacity:1;
+    }
+    50% {
+      opacity:0;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+
+/* <!--------------------------------Body--------------------------------------> */
+body
+{	
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(/media/images/back.jpg);
+	background-size: cover;
+    background-position: center; 
+    background-attachment: fixed;
+}
+
+/* -------------------------------Footer------------------------------------ */
+#footer
+{
+	color:#ecab41;;
+	/* position: fixed; */
+	left: 0;
+	bottom: 0;
+	width: 100%; 
+	padding: 8px;
+} 

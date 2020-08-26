@@ -1,0 +1,132 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300);
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+
+/* !--------------------typingtext-----------------------! */
+h1{
+  font-weight: 200;
+  margin: 0.4em 0;
+  font-size: 2.5em; 
+  color: #e9c487ce;
+  font-family: cursive;
+}
+p {
+  font-family: 'Source Code Pro', monospace;  
+  font-size: 28px;
+  font-weight: bold;
+  width: 400px;
+  color:#e9c487ce;
+}
+
+
+
+
+
+/* !--------------------teacher badge-----------------------! */
+.teacherbadge {
+  display: block;
+  position: relative;
+  width: 20rem;
+  height: 20rem;
+  cursor: pointer;
+  background: url(/media/images/teacherbadge.png) no-repeat 50% 50%;
+  background-size: 60%;
+  border-radius: 50%;
+  -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  box-shadow: 0px 0.5rem 1rem rgba(251, 251, 251, 0.75);
+}
+.teacherbadge:hover {
+  box-shadow: 0px 0.5rem 2rem rgba(255, 255, 255, 0.75);
+  background-position: 0% 50%;
+}
+.teacherbadge:hover .text {
+  -webkit-transform: rotate(-45deg) translate(0px) rotate(-315deg);
+          transform: rotate(-45deg) translate(0px) rotate(-315deg);
+  background: rgba(79, 77, 82, 0.5);
+  width: 20rem;
+  letter-spacing: 0.5rem;
+  line-height: 20rem;
+  height: 20rem;
+  margin-top: -10rem;
+  margin-left: -10rem;
+  -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1), letter-spacing 1.5s ease-out;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1), letter-spacing 1.5s ease-out;
+}
+.teacherbadge .text {
+  display: block;
+  position: absolute;
+  width: 10rem;
+  height: 10rem;
+  line-height: 10rem;
+  left: 50%;
+  top: 50%;
+  margin-top: -5rem;
+  margin-left: -5rem;
+  font-size: 1rem;
+  font-family: Raleway, sans-serif;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+  background: rgb(57, 56, 59);
+  -webkit-transform: rotate(-180deg) translate(-10rem) rotate(180deg);
+          transform: rotate(-180deg) translate(-10rem) rotate(180deg);
+  box-shadow: 0px 0.5rem 1rem rgba(246, 246, 246, 0.5);
+  -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+
+/* !--------------------student badge-----------------------! */
+.studentbadge {
+    display: block;
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    cursor: pointer;
+    background: url(/media/images/studentbadge.png) no-repeat 100% 50%;
+    background-size: 100%;
+    border-radius: 50%;
+    -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+    box-shadow: 0px 0.5rem 1rem rgba(241, 237, 237, 0.75);
+  }
+  .studentbadge:hover {
+    box-shadow: 0px 0.5rem 2rem rgba(255, 255, 255, 0.75);
+    background-position: 0% 50%;
+  }
+  .studentbadge:hover .text {
+    -webkit-transform: rotate(-45deg) translate(0px) rotate(-315deg);
+            transform: rotate(-45deg) translate(0px) rotate(-315deg);
+    background: rgba(79, 77, 82, 0.5);
+    width: 20rem;
+    letter-spacing: 0.5rem;
+    line-height: 20rem;
+    height: 20rem;
+    margin-top: -10rem;
+    margin-left: -10rem;
+    -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1), letter-spacing 1.5s ease-out;
+    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1), letter-spacing 1.5s ease-out;
+  }
+  .studentbadge .text {
+    display: block;
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    line-height: 10rem;
+    left: 50%;
+    top: 50%;
+    margin-top: -5rem;
+    margin-left: -5rem;
+    font-size: 1rem;
+    font-family: Raleway, sans-serif;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    background: rgb(57, 56, 59);
+    -webkit-transform: rotate(-180deg) translate(-10rem) rotate(180deg);
+            transform: rotate(-180deg) translate(-10rem) rotate(180deg);
+    box-shadow: 0px 0.5rem 1rem rgba(255, 255, 255, 0.5);
+    -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  }

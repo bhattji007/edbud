@@ -1,0 +1,17 @@
+{% extends 'Profile/basic.html' %}
+{% block title %} View Answers - edbud {% endblock  %}
+{% block teachname %} {{teacherinfo.name}} {% endblock  %}
+
+{% block body %}
+<div class="container my-5">
+    <h1 style="color: rgb(255, 255, 255);">{{studentinfo.studname}} ({{studentinfo.studemail}}) on {{studentinfo.subtime}}</h1>
+    {% for ques, ans in mylist%}
+    <div class="card bg-transparent" id="noransviewer">
+        <h3 style="color: rgb(138, 134, 130);" class="card-header">{{forloop.counter}}.) {{ques}}</h3>
+            <div class="card-body">
+                <h4 style="color: rgb(255, 255, 255);">Ans:- {{ans}}</h4>
+            </div>    
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

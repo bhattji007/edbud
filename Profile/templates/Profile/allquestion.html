@@ -1,0 +1,52 @@
+{% extends 'Profile/basic.html' %}
+{% block title %} Your Papers - edbud {% endblock  %}
+{% block teachname %} {{teacherinfo.name}} {% endblock  %}
+
+{% block body %}
+<div class="container my-5">
+    <h1 align='center' style="color: #ffffff;">Question Papers</h1>
+    {% for ques in quesset %}
+    
+    <div class="card bg-transparent animate__animated animate__backInRight" id='allques'>
+        <h3 style="text-align: center; color: rgb(238, 251, 54);" class="card-header">{{ques.pprname}} </h3>
+        <div class="card-body">
+          <div class="row">
+              <div class="col-md-6">
+                <h5 class="card-title" style="color: rgb(151, 229, 229);"><b>{{ques.starttime}}</b></h5><br>
+                <p class="card-text" style="color: rgb(151, 229, 229);"><b>{{ques.pprcode}}</b></p>
+              </div>
+              <div class="col-md-6">
+                <h5 class="card-title" style="color: rgb(151, 229, 229);"><b>{{ques.endtime}}</b></h5><br>
+                <p class="card-text" style="color: rgb(151, 229, 229);">Number of Questions:- <b>{{ques.noofques}}</b></p>
+              </div>
+          </div>
+          <br>
+          <div style="text-align:left;">
+          <a href="/userprofile/question/{{ques.pprcode}}/" style="color: #ffffff" class="btn btn-outline-dark">See Answer submission</a>
+          </div>
+          <div style="text-align:center;">
+            <a href="/userprofile/deleteppr/{{ques.pprcode}}/" style="color: #ffffff" class="btn btn-outline-dark">Delete Paper</a>
+          </div>
+          <div style="text-align: right;">
+            <a href="/userprofile/quesviewer/{{ques.pprcode}}/" style="color: #ffffff" class="btn btn-outline-dark">View/edit Question paper</a>
+          </div>  
+        </div>
+      </div>
+  
+    {% endfor %}
+</div>
+</div>
+<div class="container">
+<div class="row">
+  <div class="col-lg-10 col-md-6 mx-auto">
+    <div class="clearfix">
+      <a class="btn btn-dark float-left" href="{{prev}}">&larr; New Question Paper</a>
+  
+      <a class="btn btn-dark float-right" href="{{next}}">Old Question Paper &rarr;</a>
+      
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

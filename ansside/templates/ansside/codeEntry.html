@@ -1,0 +1,65 @@
+{% extends 'ansside/basic.html' %}
+{% block title %}Enter Your Paper Code - edbud{% endblock %}
+{% block body %}
+<div class="container">
+    
+        
+
+          <form method='post' class="my-5" id="studinfo">{% csrf_token %}
+          <div class="codeentry">
+            <h1 align="center">Enter The Paper Code Here</h1>
+        
+        <input type="text" class="form-control bg-transparent" placeholder="Enter the Paper Code" id="pprcode" name='pprcode'
+          required data-validation-required-message="Please Enter number of questions">
+          </div>
+            <h1 align="center" class="my-5">Please Enter Your Information</h1>
+            <div class="form-row my-2">
+                <div class="form-group col-md-6">
+                    <label>Name</label>
+                    <input type="text" class="form-control bg-transparent" placeholder="Enter Your name" id="studname"
+                    name='studname' required data-validation-required-message="Please Enter Your name.">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Institution Name</label>
+                    <input type="text" class="form-control bg-transparent" placeholder="Enter Your Institution name" id="studinst"
+                    name='studinst' required data-validation-required-message="Please Enter number of questions">
+                </div>
+            </div>
+            <div class="form-row my-2">
+                <div class="form-group col-md-6">
+                    <label>Email</label>
+                    <input type="email" class="form-control bg-transparent" placeholder="Enter your email" id="studemail"
+                    name='studemail' required data-validation-required-message="Please Enter Your email.">
+                </div>
+                <div class="form-group col-md-6">
+                    <span id="rn">
+                    <label class="my-4">Do You Have Any Roll Number to Enter</label> <input type="checkbox" id="myCheck" onclick="myFunction()">
+                    </span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-outline-dark" style="color: white;
+            border-color: white;">Next</button>
+    </form>
+    
+    
+  </form>
+</div>
+
+{% endblock %}
+{% block js %}
+<script>
+    function myFunction() {
+    // Get the checkbox
+    var checkBox = document.getElementById("myCheck");
+
+
+    // If the checkbox is checked, make it to enter roll no
+    if (checkBox.checked == true) {
+
+      document.getElementById("rn").innerHTML = "<label>Roll Number</label>" +
+        "<input type='text' class='form-control bg-transparent animate__animated animate__flipInX' placeholder='Enter Your Roll Number' id='studrn' name='studrn'>";
+    }
+  }
+  
+</script>
+{% endblock %}

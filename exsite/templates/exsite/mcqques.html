@@ -1,0 +1,182 @@
+{% extends 'exsite/basic2.html' %}
+{% block title %} Mcq Question Form - edbud {% endblock  %}
+{% block teachname %} {{teacherinfo.name}} {% endblock  %}
+
+{% block body %}
+
+<div class="container my-5">
+
+  {% if quesinfo %}
+  <div>
+    <div class="stpimgs">
+    <img src="/media/exsite/images/step1.png" width="72" height="72" class="mx-lg-5" id="actvstep">
+    <img src="/media/exsite/images/step2.png" width="72" height="72" class="mx-lg-5" id="nonavstep">
+    <img src="/media/exsite/images/step3.png" width="72" height="72" class="mx-lg-5" id="nonavstep">
+    <div class="stpimgs">
+  </div>
+  <br><br>
+  <form id="quesform" method="post">{% csrf_token %}
+    <h1 align="center"> Question Paper Information </h1>
+    <div class="form-row my-2">
+
+      <div class="form-group col-md-6">
+        <label>Paper Name</label>
+        <input type="text" class="form-control bg-transparent" placeholder="Enter Paper name" id="pprname"
+          name='pprname' required data-validation-required-message="Please Enter Paper name.">
+      </div>
+      <div class="form-group col-md-6">
+        <label>No. of question</label>
+        <input type="text" class="form-control bg-transparent" placeholder="Enter No. of Question" id="noq" name='noq'
+          required data-validation-required-message="Please Enter number of questions">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-dark">Next</button>
+  </form>
+
+  {% elif question %}
+  <div class="stpimgs">
+  <img src="/media/exsite/images/step1.png" width="72" height="72" class="mx-lg-5" id="donestep">
+  <img src="/media/exsite/images/step2.png" width="72" height="72" class="mx-lg-5" id="actvstep">
+  <img src="/media/exsite/images/step3.png" width="72" height="72" class="mx-lg-5" id="nonavstep">
+  </div>
+  <br><br>
+  <form id="quesform" method="post">{% csrf_token %}
+    <div class="control-group">
+      {% for i in noq  %}
+      <div class="form-group floating-label-form-group controls">
+        <label for="desc"> Question{{i}}: </label>
+        <textarea rows="2" class="form-control bg-transparent" placeholder="Enter Question" id="question{{i}}"
+          name='question{{i}}'  required data-validation-required-message="Please Enter a Question"></textarea>
+        <p class="help-block text-danger"></p>
+      </div>
+
+      <div class="form-row my-2">
+      <div class="form-group col-md-3">
+        <label>Option 1</label>
+        <input type="text" class="form-control bg-transparent" placeholder="Enter Option 1" id="{{i}}op1"
+          name='{{i}}op1' required data-validation-required-message="Please Enter Option 1">
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label>Option 2</label>
+        <input type="text" class="form-control bg-transparent" placeholder="Enter Option 2" id="{{i}}op2"
+          name='{{i}}op2' required data-validation-required-message="Please Enter Option 2">
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label>Option 3</label>
+        <input type="text" class="form-control bg-transparent" placeholder="Enter Option 3" id="{{i}}op3"
+          name='{{i}}op3' required data-validation-required-message="Please Enter Option 3">
+      </div>
+    
+      <div class="form-group col-md-3">
+        <label>Option 4</label>
+        <input type="text" class="form-control bg-transparent" placeholder="Enter Option 4" id="{{i}}op4"
+          name='{{i}}op4' required data-validation-required-message="Please Enter Option 4">
+      </div>
+    </div>
+
+<div class="form-row my-2">
+
+      <div class="form-group col-md-6">
+        <label>Correct Ans(as in options)</label>
+        <input type="text" class="form-control bg-transparent" placeholder="Enter Correct Answer From above option" id="ans{{i}}"
+          name='ans{{i}}' required data-validation-required-message="Please Enter Answers">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Marks for this question</label>
+        <input type="text" class="form-control bg-transparent" placeholder="Enter marks for this question" id="marks{{i}}" name='marks{{i}}'
+          required data-validation-required-message="Please Enter marks for this question">
+      </div>
+    </div>
+    <br><br>
+
+      {% endfor %}
+    </div>
+    <h4 align="center">Enter the Date and Time schedule for your Exam</h4>
+  <div class="form-row my-2">
+    
+    <div class="form-group col-md-6" id="starttime">
+      <label>Enter Starting Date and Time</label>
+      <input type="datetime-local" class="form-control "  name='starttime' required data-validation-required-message="Please Enter starting time">
+    </div>
+    <div class="form-group col-md-6" id="endtime">
+      <label>Enter Ending Date and Time</label>
+      <input type="datetime-local" class="form-control "  name='endtime' required>
+    </div>
+  </div>
+    <button type="submit" class="btn btn-dark">Next</button>
+  </form>
+
+  {% else %}
+  <div class="step3">
+    <div class="stpimgs">
+    <img src="/media/exsite/images/step1.png" width="72" height="72" class="mx-lg-5" id="donestep">
+    <img src="/media/exsite/images/step2.png" width="72" height="72" class="mx-lg-5" id="donestep">
+    <img src="/media/exsite/images/step3.png" width="72" height="72" class="mx-lg-5" id="actvstep">
+    </div>
+    <br><br>
+    <h4 align="center"> Done! Your Paper Code is</h1>
+      <div class="card bg-transparent">
+  <div class="card-body">
+    <h2 align="center">  <b id="codetxt">{{ques.pprcode}}</b> </h3>
+      
+    <button onclick="copyToClipboard('#codetxt')" id="copybutton">
+    Copy Exam Code
+    </button>
+    <a href= 
+    "whatsapp://send?text= Hope you all are doing well!, This is your {{ques.pprcode}} for your Exam on {{ques.starttime}}"
+        data-action="share/whatsapp/share"
+        target="_blank">
+        <button class="btn btn-success"> 
+        Share to whatsapp <img src="/media/exsite/images/whatsapp-64.png" style="height: 40px;">
+        </button>
+    </a>
+  </div>
+</div>
+<br>
+        <h4 align="center"> Give this Paper code to Your students </h4>
+        
+        <div class="card mb-3 text-white bg-transparent my-5" style="max-width: 540px;
+    padding: 10px;
+    margin: auto;
+    box-shadow: 0 4px 4px 4px rgb(0, 0, 0), 0 4px 10px 0 rgba(248, 246, 246, 0.959);">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+              <br><br><br>
+            <img src="/media/exsite/images/reviewus.png" class="card-img">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"style="color: #ecab41;">One thing that makes us better<i class="fa fa-heart" style="font-size:25px; color: red;"></i>Your review/h5>
+              <form method="POST" action="/exsite/review/{{ques.pprcode}}/">{% csrf_token %}
+              <textarea rows="3" class="bg-transparent" placeholder="Please Enter Your Review" id="review" name="review" style="    margin-top: 0px; 
+              margin-bottom: 0px;
+              height: 185px;
+              width: 300px;
+              color:#fffbfc"></textarea>
+              <br>
+              <button class="btn btn-outline-dark" type="submit" style="color: white;
+              border-color: white;">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+{% endblock %}
+
+{% block js %}
+  <script>
+    function copyToClipboard(element) {
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($(element).text()).select();
+      document.execCommand("copy");
+      $temp.remove();
+    }
+  </script>
+{% endblock %}

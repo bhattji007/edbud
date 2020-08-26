@@ -1,0 +1,30 @@
+{% extends 'ansside/basic.html' %}
+{% block title %}Your Paper details - edbud{% endblock %}
+{% block body %}
+<div class="container" id="pprinfo">
+  <h1 align="center">{{paper.pprname}}</h1>
+  <h3 align="center">By:- {{paper.pprteach}}</h3>
+  <div class="row">
+    <div class="col-md-6 my-5">
+      <h5 align="center">Number of Question:- {{paper.noofques}}</h5>
+      <br><br><br>
+      <h5 align="center">Total Time:-{{hr}} hours {{time}} minutes</h5>
+    </div>
+    <div class="col-md-6 my-5">
+      <h5 align="color">paper code:-{{paper.pprcode}}</hr>
+        <br><br><br>
+        <h5 align="color">Date:-{{date}}</hr>
+    </div>
+  </div>
+
+{% if mcq %}
+<a href='/examport/mcq/{{paper.pprcode}}/{{email}}'><button type="button" class="btn btn-outline-dark" style="color: white;
+            border-color: white;">Start Exam</button></a>
+{% else %}
+<a href='/examport/normal/{{paper.pprcode}}/{{email}}'><button type="button" class="btn btn-outline-dark" style="color: white;
+            border-color: white;">Start Exam</button></a>
+{% endif %}
+<hr>
+</div>
+{% endblock %}
+

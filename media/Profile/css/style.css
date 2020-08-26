@@ -1,0 +1,93 @@
+*
+{
+	padding:0;
+	margin:0;
+ 
+}
+/* -------------------------------All questions------------------------------------ */
+#allques{
+	padding: 10px;
+	margin: 25px;
+	/* border-color: chocolate;
+	border-width: thick; */
+	box-shadow: 0 4px 4px 0 rgb(0, 0, 0), 0 4px 10px 0 rgba(248, 246, 246, 0.959);
+}
+#allques:hover{
+	box-shadow:-4px 11px 12px 0 rgb(0, 0, 0), 3px 5px 25px 0 rgba(248, 246, 246, 0.959);
+	border-color: rgb(255, 255, 255);
+	border-width: thick;
+}
+
+/* -------------------------------userprofile------------------------------------ */
+#usrprfl{
+	padding: 10px;
+	margin: 25px;
+	height: 220px;
+	box-shadow: 0 4px 4px 0 rgb(0, 0, 0), 0 4px 10px 0 rgba(248, 246, 246, 0.959);
+}
+#usrprfl:hover{
+	box-shadow:-4px 11px 12px 0 rgb(0, 0, 0), 3px 5px 25px 0 rgba(248, 246, 246, 0.959);
+	border-color: rgb(121, 82, 10);
+	border-width: 8px;
+}
+/* -------------------------------submissions------------------------------------ */
+#students {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+  }
+  
+  #students td, #students th {
+	border: 1px solid #ddd;
+	padding: 8px;
+  }
+  
+  #students tr:nth-child(even){background-color: #e4b15f;}
+  
+  #students tr:hover {background-color: rgba(221, 221, 221, 0.151);}
+  
+  #students th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #886811;
+	color: white;
+	font-size: 25px;
+  }
+
+  
+/* -------------------------------viewnoranswers------------------------------------ */
+#noransviewer{
+	padding: 10px;
+    margin: 25px;
+	box-shadow: 0 4px 4px 0 rgb(0, 0, 0), 0 4px 10px 0 rgba(248, 246, 246, 0.959);
+}
+
+/* -------------------------------quesviewer------------------------------------ */
+#quesviewer{
+	padding: 10px;
+    margin: 25px;
+	box-shadow: 0 4px 4px 0 rgb(0, 0, 0), 0 4px 10px 0 rgba(248, 246, 246, 0.959);
+}
+
+
+/* -------------------------------Main body------------------------------------ */
+body
+{	
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(/media/exsite/images/back.jpg);
+	background-size: cover;
+    background-position: center;
+
+}
+
+/* -------------------------------Footer------------------------------------ */
+#footer
+{
+	color: #fff;
+	/* position: fixed; */
+	left: 0;
+	bottom: 0;
+	width: 100%; 
+	padding: 8px;
+} 

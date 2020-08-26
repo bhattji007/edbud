@@ -1,0 +1,45 @@
+{% extends 'Profile/basic.html' %}
+{% block title %} {{teacherinfo.name}} - edbud {% endblock  %}
+{% block teachname %} {{teacherinfo.name}} {% endblock  %}
+
+{% block body %}
+<div class="container my-5">
+    <h1 style="text-align: center; color: #ffffff;">Change Your Details</h1>
+    <div class="col-lg-8 col-md-10 mx-auto">
+        <form method="POST" class="animate__animated animate__jackInTheBox">{%csrf_token%}
+            <label>Name</label>
+            <input type="text" class="form-control" id="chngname" name='chngname' value="{{teacherinfo.name}}">
+            <p class="help-block text-danger"></p>
+            <label>Phone Number</label>
+            <input type="tel" class="form-control" id="chngphone" name='chngphone' value="{{teacherinfo.phone}}">
+            <p class="help-block text-danger"></p>
+            <label>Describe Yourself</label>
+            <textarea rows="3" class="form-control" id="description" name='description'>{{teacherinfo.description}}</textarea>
+            <br>
+            <hr style="color: #ffffff; size: 10px;">
+            
+            <h3 style="text-align: center; color: #ffffff;">Change Your Password</h3>
+            <label>Enter Your Old Password</label>
+            <input type="password" class="form-control" id="oldpass" name='oldpass'>
+            <p class="help-block text-danger"></p>
+            <label>Enter Your New Password</label>
+            <input type="password" class="form-control" id="chngpass" name='chngpass'>
+            <p class="help-block text-danger"></p>
+            <div style="text-align: center;">
+            <a href="/exsite/forgotpassword/"><label>Forgot Password</label></a>
+            </div>
+            <br>
+            <button type="submit" style="color: #ffffff;" class="btn btn-outline-dark">Save Changes</button>
+        </form>
+
+    </div>
+
+</div>
+{% endblock %}
+{% block js %}
+<script>
+    {% if nomatch %}
+    alert("Your Old Password Didn't match")
+    {% endif %}
+</script>
+{% endblock %}

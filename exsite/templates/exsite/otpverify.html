@@ -1,0 +1,34 @@
+{% extends 'exsite/basic.html' %}
+{% block title %}OTP Verification - edbud {% endblock %}
+
+{% block addnavitem %}
+<li class="nav-item active">
+    <a class="nav-link" href="/exsite/">Home <span class="sr-only"></span></a>
+</li>
+
+{% endblock %}
+{% block body %}
+<div class='container my-5'>
+    <div style="text-align: center;">
+        <div class="card bg-transparent my-5">
+            <h3 class="card-header" style="color: #e9a932">Enter the OTP Send to Your Registered Email</h3>
+            <div class="card-body">
+                <form method="POST" class="my-5">{% csrf_token %}
+                
+                <input type="password" class="bg-transparent" style="color: #ffffff; font-size: 15px; border-radius: 20px; margin: 5px;" id="otpenter" name="otpenter">
+                <button type="submit" class="btn btn-outline-warning">Verify</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+    {% if wrongotp %}
+        alert('Entered otp is not correct')
+    {% endif %}
+</script>
+{% endblock %}
+
+

@@ -1,0 +1,169 @@
+*
+{
+	padding:0;
+	margin:0;
+ 
+}
+
+/* -------------------------------Navigation Bar------------------------------------ */
+#nav-bar
+{
+	top: 0;
+    z-index: 10;
+    margin: 20px;
+    box-shadow: 0 4px 4px 0 rgb(0, 0, 0), 0 4px 10px 0 rgba(248, 246, 246, 0.959);
+    border-radius: 40px;
+}
+#nav-bar:hover{
+    background: linear-gradient( #1d1c1cec);
+    transition: 0.5s;
+}
+.navbar-nav li a{
+	color:rgb(134, 118, 118)!important;
+    float: right;
+    text-align: left;
+    font-family: 'Times New Roman', 'Times', 'serif';
+    font-size: 25px;
+
+}
+#nav-bar ul li a:hover{
+	color: #e0e6ec!important;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 28px;
+    transition: 0.5s;
+}
+#nav-bar .iconav img {
+    height: 75px;
+    width: 220px;
+}
+#nav-bar .iconav img:hover{
+	filter: drop-shadow(0px 0px 15px rgb(255, 158, 3));
+	transition: 0.5s;
+}
+
+
+
+/* -------------------------------Teacher registration form------------------------------------ */
+#teacherform h3{
+	color: #dbd94e;
+}
+#teacherform label{
+	color: #fdfdfd;
+}
+
+/* -------------------------------Question Form------------------------------------ */
+  /* Create two equal columns that floats next to each other */
+.column {
+	float: right;
+	width: 50%;
+	padding: 30px;
+
+	height: 400px; /* Should be removed. Only for demonstration */
+	/* box-shadow:         inset 0 0 15px #edf0eb; */
+	
+}
+.column h2{
+	color: #ffffff;
+	font-family: serif;
+}
+.card:hover{
+	box-shadow: 4px 6px 6px 4px rgb(0, 0, 0), 4px 6px 6px 4px rgba(248, 246, 246, 0.959);
+}
+.oldppr label{
+	color: #727577;
+	font-size: 18px;
+	font-weight: bold;
+	box-shadow: 0 4px px 2px rgb(0, 0, 0), 0 4px 6px 0 rgba(248, 246, 246, 0.959);
+
+}
+.oldppr label:hover{
+	color:#ffffff;
+}
+.menuop img
+{	
+	
+    filter: grayscale(1);
+}
+.menuop img:hover
+{
+	filter: grayscale(0);
+	box-shadow: 0 4px 4px 0 rgb(0, 0, 0), 0 4px 10px 0 rgba(248, 246, 246, 0.959);
+    cursor: pointer;
+}
+.menuop label{
+	color: #ffffff;;
+	font-size: 18px;
+	font-style: italic;
+}
+/* .menuop label:hover{
+	box-shadow: 0 4px 4px 0 rgb(0, 0, 0), 0 4px 10px 0 rgba(248, 246, 246, 0.959);
+} */
+
+/* -------------------------------nor and mcq ques------------------------------------ */
+.stpimgs{
+	width: 100%;
+	text-align: center;
+}
+#actvstep{
+	
+	filter: drop-shadow(0px 0px 15px  rgb(255, 134, 225));
+}
+#nonavstep{
+	
+	filter: blur(2px) grayscale(1);
+	
+}
+#donestep{
+	filter: blur(2px);
+}
+#quesform input,h1,h4,label{
+	color: #ffffff;
+}
+#quesform textarea{
+	color: #ffffff;
+	font-size: 25px;
+}
+#starttime input{
+	color: rgb(0, 0, 0);
+}
+#endtime input{
+	color: rgb(0, 0, 0);
+}
+
+.step3 h4,h2{
+	color: #ffffff
+}
+#copybutton{
+	height:30px;
+  width:150px;
+  border-radius:8px;
+  padding:10px;
+  font-size:15px;
+  font-family: 'Oswald', sans-serif;
+  height:52px;
+  cursor:pointer;
+  background-color:rgb(155, 153, 150);
+}
+#copybutton:hover{
+	font-weight: bolder;
+}
+
+/* -------------------------------Main Body------------------------------------ */
+body
+{	
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(/media/exsite/images/back.jpg);
+	 background-size: cover;
+    background-position: center; 
+}
+
+/* -------------------------------Footer------------------------------------ */
+#footer
+{
+	color: #fff;
+	/* position: fixed; */
+	left: 0;
+	bottom: 0;
+	width: 100%; 
+	padding: 8px;
+} 
