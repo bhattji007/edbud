@@ -149,7 +149,7 @@ body {
       transform: translate3d(0px, -50%, 0);
     }
   } */
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 1000px) {
     body {
       padding-left: 0;
     }
