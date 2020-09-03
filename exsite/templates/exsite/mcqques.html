@@ -45,7 +45,7 @@
       {% for i in noq  %}
       <div class="form-group floating-label-form-group controls">
         <label for="desc"> Question{{i}}: </label>
-        <textarea rows="2" class="form-control bg-transparent" placeholder="Enter Question" id="question{{i}}"
+        <textarea onkeyup="new do_resize(this);" cols="20" rows="1" class="form-control bg-transparent" placeholder="Enter Question" id="question{{i}}"
           name='question{{i}}'  required data-validation-required-message="Please Enter a Question"></textarea>
         <p class="help-block text-danger"></p>
       </div>
@@ -178,5 +178,23 @@
       document.execCommand("copy");
       $temp.remove();
     }
+    function do_resize(textbox) {
+
+ var maxrows=5; 
+  var txt=textbox.value;
+  var cols=textbox.cols;
+
+ var arraytxt=txt.split('\n');
+  var rows=arraytxt.length; 
+
+ for (i=0;i<arraytxt.length;i++) 
+  rows+=parseInt(arraytxt[i].length/cols);
+
+ if (rows>maxrows) textbox.rows=maxrows;
+  else textbox.rows=rows;
+ }
   </script>
 {% endblock %}
+
+Hope you all are doing well!%0a%0aThis is your PaperCode for your exam%0a%0a&quot;{{ques.pprcode}}&quot;
+   %0a%0aExam Start at:-{{ques.starttime}}%0aExam End at{{ques.endtime}}%0a%0aGo to this link and enter the Papercode and your details%0ahttp://edbud.pythonanywhere.com/examport/%0a%0aBy :-{{ques.pprteach}}

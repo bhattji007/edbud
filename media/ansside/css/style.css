@@ -71,7 +71,7 @@
 #pprinfo h1{
 	color: #fdfdfd
 }
-#pprinfo h3{
+#pprinfo h4{
 	color: #a3a295
 }
 #pprinfo h5{
@@ -96,28 +96,16 @@ body .carousel-control-prev-icon,
 body .carousel-control-next-icon
 {
 background-color: #333;
-}
-.carousel-control-prev
-.carousel-control-next
-{
-top: auto;
-padding-top: 222px;
-bottom: auto;
-}
 
+}
 
 /* -------------------------------Solving Mcq------------------------------------ */
 #solvemcq{
-	padding: 0px;
-    padding-left: 90px;
-    padding-right: 80px;
-	margin: 0;
+	margin: 40px;
+	padding: 25px;
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
 }
-#solvemcq button{
-	margin-left: auto;
-    margin-right: auto;
-}
+
 #solvemcq input[type="radio"] {
     display: none;  
 }
@@ -133,31 +121,40 @@ bottom: auto;
 }
 #solvemcq label{
 	font-size: 22px;
-	
 }
-#solvemcq h3{
+@media screen and (max-width: 800px){
+	#solvemcq{
+		margin: 5px;
+		padding: 10px;
+	}
+	#solvemcq label{
+		font-size: 18px;
+	}
+	#solvemcq h3{
+		font-size: 20px;
+	}
+}
+/* #solvemcq h3{
 	color: #b6ae16;
-}
+} */
 
 
 
 /* -------------------------------Normal Question Paper------------------------------------ */
-#Norquesviewer h1{
-	color: #e4e3cf;
+
+#normalquestionmob{
+	margin: 40px;
+	padding: 25px;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
 }
-#norques textarea, h4{
-	color: #efef;
-}
-#normalques{
-	padding: 0px;
-    padding-left: 90px;
-    padding-right: 80px;
-	margin: 0;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-#normalques button{
-	margin-left: auto;
-    margin-right: auto;
+@media screen and (max-width: 800px){
+	#normalquestionmob{
+		margin: 5px;
+		padding: 10px;
+	}
+	#normalquestionmob h3{
+		font-size: 20px;
+	}
 }
 
 

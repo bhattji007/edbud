@@ -10,10 +10,9 @@
     </h1>
 </div>
 
-</div>
 <form method='post' id="submittionmcqsppr">{% csrf_token %}
     <div id="mcqquesviewer" class="carousel slide my-5" data-interval="false">
-
+    
     <div class="carousel-inner">
         {% for ques in quesset %}
             {% if forloop.first %}
@@ -42,26 +41,25 @@
         {% endfor %}
         </div>
     </div>
-    <div>
-    <a class="carousel-control-prev" href="#mcqquesviewer" role="button" data-slide="prev" style="width: 100px; top: 700px; bottom: 160px;">
-      <span class="btn btn-dark" aria-hidden="true">Previous Question</span>
+    
+    <a class="carousel-control-prev" href="#mcqquesviewer" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#mcqquesviewer" role="button" data-slide="next" style="width: 100px; top: 700px; bottom: 160px;">
-      <span class="btn btn-dark" aria-hidden="true">Next Question</span>
+    <a class="carousel-control-next" href="#mcqquesviewer" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-  </div>
-        <div style="text-align: center;">
-          <button type="submit" class="btn btn-outline-dark" style="color: white;">Submit</button>
-        </div>
+  
+        <button type="submit" class="btn btn-outline-dark" style="color: white;
+            border-color: white;">Submit</button>
     </form>
-
+</div>
 {% endblock %}
 {% block js %}
   <script>
     var div = document.getElementById('display');
-
+    
 
       function CountDown(duration, display) {
 

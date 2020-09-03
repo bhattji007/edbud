@@ -19,7 +19,7 @@ class Question(models.Model):
     id = models.AutoField(primary_key=True)
     pprname = models.CharField(max_length=100, default="")
     noofques = models.IntegerField(default=0)
-    question = models.CharField(max_length=10000, default="")
+    question = models.CharField(max_length=50000, default="")
     pprcode = models.CharField(max_length=50, default="")
     pprteach = models.CharField(max_length=100, default="")
     pdfop = models.CharField(max_length=10,default="")
@@ -45,6 +45,10 @@ class Student(models.Model):
 
     def __str__(self):
         return self.studemail
+
+    def delete(self, *args, **kwargs):
+        self.pdf.delete()
+        super().delete(*args, **kwargs)
     
 class Contact(models.Model):
     contactid = models.AutoField(primary_key=True)

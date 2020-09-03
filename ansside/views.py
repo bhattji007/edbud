@@ -5,6 +5,7 @@ from exsite.models import Question, Student
 import time
 from django.core.mail import send_mail
 from examsite.settings import EMAIL_HOST_USER
+
 # Create your views here.
 def index(request):
     if request.method=='POST':
@@ -46,7 +47,11 @@ def mcqpapercenter(request,code,email):
     else:
         # Scheduled end date and time of examination is yet to come
         if(timezone.now()<=questset.endtime):
-            studinfo = get_object_or_404(Student,studemail=email,pprcode=code)
+            # checking whether the student have come first or not
+            try:
+                studinfo = get_object_or_404(Student,studemail=email,pprcode=code)
+            except Exception:
+                return HttpResponse("<script>alert('You have Already given the exam')</script>")
             #if Student is giving exam first time
             if(studinfo.result==''):
                 data=[n for n in range(len(questset.question)) if questset.question.find("@#$%", n) == n]
@@ -110,7 +115,10 @@ def normalpapercenter(request,code,email):
     else:
         # Scheduled end date and time of examination is yet to come
         if(timezone.now()<=questset.endtime):
-            studinfo = get_object_or_404(Student,studemail=email,pprcode=code)
+            try:
+                studinfo = get_object_or_404(Student,studemail=email,pprcode=code)
+            except Exception:
+                return HttpResponse("<script>alert('You have Already given the exam')</script>")
             #if Student is giving exam first time
             if(studinfo.result==''):
                 if (questset.pdfop =="Yes"):
@@ -156,11 +164,14 @@ def anspdf(request, code, email):
     pdfsumission.result="Pdfsubmitted"
     pdfsumission.save()
     if  request.FILES:
-        f= request.FILES.get('anspdf','')
-        pdfsumission.pdf=f
-        pdfsumission.subtime=time.asctime(time.localtime(time.time()))
-        pdfsumission.save()
-        return render(request, 'ansside/resultsub.html', {'studinfo':pdfsumission,'mcq':False})
+        if(pdfsumission.subtime==''):
+            f= request.FILES.get('anspdf','')
+            pdfsumission.pdf=f
+            pdfsumission.subtime=time.asctime(time.localtime(time.time()))
+            pdfsumission.save()
+            return render(request, 'ansside/resultsub.html', {'studinfo':pdfsumission,'mcq':False})
+        else:
+            return HttpResponse("<h1 style='text-align: center; margin: 20px; color:#ecab41;'>You have Already Submitted Your Response</h1><a href='/'>back to home</a>")
     return render(request, 'ansside/pdfsubmit.html', {'student':pdfsumission})
 
 def review(request, code, email):

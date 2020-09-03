@@ -15,14 +15,16 @@
             </div>
         </div>
         <div style="text-align:center;">
-            <a href="/userprofile/deleteppr/{{pprinfo.pprcode}}/" style="color: #ffffff" class="btn btn-outline-dark">Delete Paper</a>
+            <form method='POST' action="/userprofile/deleteppr/{{pprinfo.pprcode}}/">{% csrf_token %}
+              <button type="submit" style="color: #ffffff" class="btn btn-outline-dark">Delete Paper</button>
+            </form>
         </div>
     {% if mcq %}
     <form method="POST">{% csrf_token %}
         {% for ques in questions %}
             <div class="card bg-transparent" id="quesviewer">
                 <h4 style="color: rgb(255, 255, 255);">{{forloop.counter}}.)</h4>
-                <textarea rows="2" class="bg-transparent" id="question{{forloop.counter}}" name="question{{forloop.counter}}" style="color: #ffffff; font-size: 25px; border: none;">{{ques.0}}</textarea>
+                <textarea rows="4" class="bg-transparent" id="question{{forloop.counter}}" name="question{{forloop.counter}}" style="color: #ffffff; font-size: 25px; border: none;">{{ques.0}}</textarea>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
@@ -48,7 +50,7 @@
         
         <div class="card bg-transparent" id="quesviewer">
             <h4 style="color: rgb(255, 255, 255);">{{forloop.counter}}.)</h4>
-            <textarea rows="2" class="bg-transparent" id="question{{forloop.counter}}" name="question{{forloop.counter}}" style="color: #ffffff; font-size: 25px; border: none;">{{ques}}</textarea>
+            <textarea rows="4" class="bg-transparent" id="question{{forloop.counter}}" name="question{{forloop.counter}}" style="color: #ffffff; font-size: 25px; border: none;">{{ques}}</textarea>
         </div>
         {% endfor %}
         <button type="submit" class="btn btn-outline-secondary">Save Changes</button>
@@ -57,5 +59,3 @@
 </div>
 {% endblock %}
 
-<h5 class="card-title" style="color: rgb(151, 229, 229);"><b>{{ques.endtime}}</b></h5><br>
-                <p class="card-text" style="color: rgb(151, 229, 229);">Number of Questions:- <b>{{ques.noofques}}</b></p>

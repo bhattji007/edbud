@@ -70,6 +70,9 @@ body {
   .menu ul li.icon-customers {
     background-image: url(/media/Profile/images/profile.png);
   }
+  .menu ul li.icon-ques {
+    background-image: url(/media/Profile/images/ques_checklists.png);
+  }
   .menu ul li.icon-users {
     background-image: url(/media/Profile/images/aboutus.png);
   }

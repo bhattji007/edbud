@@ -82,7 +82,7 @@ def questionview(request,code):
             return render(request, 'Profile/submissions.html',{'teacherinfo':userp,'submissions':submissions,'code':code,'mcq':True})
         elif test.pdfop=="Yes":
             # pdf=True
-            return render(request, 'Profile/submissions.html',{'teacherinfo':userp,'submissions':submissions,'code':code,'pdf':True})
+            return render(request, 'Profile/submissions.html',{'teacherinfo':userp,'submissions':submissions,'code':code,'pdfs':True})
         else:
             # normal=True
             return render(request, 'Profile/submissions.html',{'teacherinfo':userp,'submissions':submissions,'code':code,'normal':True})
@@ -177,9 +177,11 @@ def quesviewer(request, code):
 
 def deleteppr(request, code):
     if request.session.has_key('user'):
-        ques = Question.objects.get(pprcode=code)
-        ans = Student.objects.filter(pprcode=code)
-        ques.delete()
-        ans.delete()
-        return redirect('/userprofile/allquestion/')
+        if request.method=='POST':
+            ques = Question.objects.get(pprcode=code)
+            ans = Student.objects.filter(pprcode=code)
+            ques.delete()
+            for submission in ans:
+                submission.delete()
+            return redirect('/userprofile/allquestion/')
     return redirect('/exsite/')

@@ -21,14 +21,21 @@
               </div>
           </div>
           <br>
-          <div style="text-align:left;">
-          <a href="/userprofile/question/{{ques.pprcode}}/" style="color: #ffffff" class="btn btn-outline-dark">See Answer submission</a>
-          </div>
           <div style="text-align:center;">
-            <a href="/userprofile/deleteppr/{{ques.pprcode}}/" style="color: #ffffff" class="btn btn-outline-dark">Delete Paper</a>
-          </div>
-          <div style="text-align: right;">
+            <a href="/userprofile/question/{{ques.pprcode}}/" style="color: #ffffff" class="btn btn-outline-dark">See Answer submission</a>
+          
+            <form method='POST' action="/userprofile/deleteppr/{{ques.pprcode}}/">{% csrf_token %}
+              <button type="submit" style="color: #ffffff" class="btn btn-outline-dark">Delete Paper</button>
+            </form>
+          
             <a href="/userprofile/quesviewer/{{ques.pprcode}}/" style="color: #ffffff" class="btn btn-outline-dark">View/edit Question paper</a>
+            <a href=
+            "whatsapp://send?text= Hope you all are doing well!%0a%0aThis is your PaperCode for your exam%0a%0a&quot;{{ques.pprcode}}&quot;%0a%0aExam Start at:-{{ques.starttime}}%0aExam End at{{ques.endtime}}%0a%0aGo to this link and enter the Papercode and your details%0aedbud.pythonanywhere.com/examport/%0a%0aBy :-{{ques.pprteach}}"
+            data-action="share/whatsapp/share"
+            target="_blank">
+            <button class="btn btn-success">
+            Share to whatsapp <img src="/media/exsite/images/whatsapp-64.png" style="height: 40px;">
+            </button>
           </div>  
         </div>
       </div>

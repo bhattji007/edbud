@@ -172,59 +172,25 @@
             }
 
 /* <!--------------------------------about us--------------------------------------> */
-.output {
-    text-align:center;
-    font-family: 'Times New Roman', cursive;
-    color: #ecab41;
-    
-  }
-.output h1 {
-    font-size:35px;
-  }
-  /* Cursor Styling */
-  
-  .cursor::after {
-    content:'';
-    display:inline-block;
-    margin-left:3px;
-    background-color:white;
-    animation-name:blink;
-    animation-duration:0.5s;
-    animation-iteration-count: infinite;
-  }
-  h1.cursor::after {
-    height:24px;
-    width:13px;
-  }
-  p.cursor::after {
-    height:13px;
-    width:6px;
-  }
-  
-  @keyframes blink {
-    0% {
-      opacity:1;
+@media screen and (max-width: 800px){
+    #aboutedbud{
+        margin: 5px;
     }
-    49% {
-      opacity:1;
+    #aboutdev{
+        margin: 5px;
     }
-    50% {
-      opacity:0;
-    }
-    100% {
-      opacity:0;
-    }
-  }
-
+}
 /* <!--------------------------------Body--------------------------------------> */
 body
 {	
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(/media/images/back.jpg);
 	background-size: cover;
-    background-position: center; 
+    background-position: center center; 
+    background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
 
 /* -------------------------------Footer------------------------------------ */
 #footer
